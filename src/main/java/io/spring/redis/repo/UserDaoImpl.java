@@ -55,7 +55,7 @@ public class UserDaoImpl implements UserDao{
     @Override
     public boolean updateUser(User user, Long id) {
         try {
-            redisTemplate.opsForHash().put(KEY, user.getId().toString(), user);
+            redisTemplate.opsForHash().put(KEY, id, user);
             return true;
         }catch (Exception e){
             e.printStackTrace();
